@@ -32,7 +32,7 @@ if [ "$1" = 'asadmin' ]; then
             # self-signed certificate for the admin API.
             # asadmin --interactive=false version
 
-            asadmin stop-domain
+            #asadmin stop-domain
         fi
 
         rm /tmp/glassfishpwd
