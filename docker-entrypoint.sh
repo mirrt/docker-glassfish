@@ -24,15 +24,16 @@ if [ "$1" = 'asadmin' ]; then
 
         if [ "$AS_ADMIN_ENABLE_SECURE" ]; then
             echo "AS_ADMIN_PASSWORD=${AS_ADMIN_PASSWORD}" > /tmp/glassfishpwd
-            asadmin start-domain            
             
-            asadmin --user=admin --passwordfile=/tmp/glassfishpwd enable-secure-admin
+            asadmin --user=admin --passwordfile=/tmp/glassfishpwd enable-secure-admin 
+            
+            asadmin start-domain
             
             # Call asadmin at least once to establish a trust with the
             # self-signed certificate for the admin API.
             # asadmin --interactive=false version
 
-            #asadmin stop-domain
+            asadmin stop-domain
         fi
 
         rm /tmp/glassfishpwd
